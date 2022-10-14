@@ -6,7 +6,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg navBg">
         <div className="container-fluid">
           <a className="navbar-brand text-light fw-bolder navLogo" href="#">
-            Vaarta1
+            OGNews
           </a>
           <button
             className="navbar-toggler"

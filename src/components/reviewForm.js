@@ -30,7 +30,7 @@ export default function ReviewForm() {
 
 
   return (
-    <div style={styles.container} className='justify-content-center mt-5'>
+    <div style={styles.container} className= 'mt-5'>
         <input placeholder="Movie Name"
         style={styles.movieName} />
       
@@ -72,8 +72,10 @@ export default function ReviewForm() {
 const styles = {
   container: {
     display: "flex",
+    minHeight: "100%",
     flexDirection: "column",
     alignItems: "center",
+    justifycontent: "center",
   },
   movieName: {
     border: "1px solid #a9a9a9",
