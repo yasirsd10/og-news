@@ -11,3 +11,123 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* --------------- Navbar styles -------------------------------- */
+
+.navBg {
+  background: #22b4c2;
+}
+
+.navLogo {
+  font-size: 28px;
+}
+
+.navTabs{
+  font-size: 20px;
+}
+
+.dropTab {
+  line-height: 30px;
+}
+
+.createTab {
+  font-size: 22px;
+}
+
+ul {
+  margin-bottom: 0px;
+}
+.icon {
+  text-decoration: none;
+  list-style-type: none;
+}
+ 
+.icon a i {
+  font-size: 32px;
+  margin: 0 8px;
+}
+
+.icon a .faceIcon  {
+  color: 	blue;
+}
+
+.icon a .tweetIcon {
+  color: #00acee;
+}
+
+.icon a .youtubeIcon  {
+  color: 	#FF0000;
+}
+
+/* --------------- movie Article styles -------------------------------- */
+
+.movieArticle {
+  width: 45%;
+  padding: 210px 0;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.movieArticle .movieArticleBtn {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+
+/* --------------- movie Article styles -------------------------------- */
+
+.collectionsDiv {
+  width: 100%;
+  padding: 180px 0;
+  position: relative;
+}
+
+.collectionsDiv .collectionsDivBtn {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+
+/* --------------- trends styles -------------------------------- */
+
+.trends {
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
+.trends .trendsContainer {
+  width: 45%;
+  padding: 180px 0;
+  background: gray;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.trends .trendsDivBtn {
+  position: absolute;
+  bottom: 15px;
+  right: 20px
+}
+
+.reviewsContainer {
+  padding: 50px;
+}
+
+.reviewPoster {
+  height: 250px;
+  width: 200px;
+  padding: 20px;
+}
+
+.reviewstar {
+  width: 70px;
+  height: 30px;
+}
+
+
+
