@@ -1,10 +1,12 @@
 import "./App.css";
-import Navbar from "./components/navbar";
+import Navbar from "./components/homeComponents/navbar";
 import Output from "./output";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ReviewForm from "./components/reviewForm";
+import ReviewForm from "./components/movieReview/reviewForm";
 import CollectionForm from "./components/collectionForm";
 import NewsForm from "./components/newsForm";
+import ReviewArea from "./components/movieReview/reviewArea";
+import ReviewMapping from "./components/movieReview/reviewMapping";
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
             </Route>
             <Route path="/newsForm">
               <NewsForm />
+            </Route>
+            <Route path= "/reviewArea">
+              <ReviewMapping />
             </Route>
           </Switch>
         </div>

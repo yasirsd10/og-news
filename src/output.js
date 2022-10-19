@@ -1,8 +1,8 @@
 import React from 'react'
 import Moviearticle from './components/moviearticle'
 import Collections from './components/collections'
-import Trends from './components/trends'
-import MovieReviews from './components/movieReviews'
+import Trends from './components/homeComponents/trends'
+import MovieReviews from './components/homeComponents/movieReviews'
 
 function Output() {
   return (
@@ -20,7 +20,6 @@ function Output() {
         <div className='container mt-4'>
         <Trends />
         </div>
-        
 
     </div>
   )

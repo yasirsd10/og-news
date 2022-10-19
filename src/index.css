@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(87, 87, 87);
+  background: rgb(255, 255, 255);
 }
 
 code {
@@ -69,6 +69,7 @@ ul {
   position: relative;
   margin-right: auto;
   margin-left: auto;
+  background: rgb(163, 162, 162);
 }
 
 .movieArticle .movieArticleBtn {
@@ -102,7 +103,7 @@ ul {
 .trends .trendsContainer {
   width: 45%;
   padding: 180px 0;
-  background: gray;
+  background: rgb(203, 202, 202);
   position: relative;
   margin-right: auto;
   margin-left: auto;
@@ -117,6 +118,7 @@ ul {
 
 .reviewsContainer {
   padding: 50px;
+  background: rgb(114, 114, 114);
 }
 
 .reviewPoster {

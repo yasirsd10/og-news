@@ -64,7 +64,7 @@ function Navbar() {
                 <a
                   className="nav-link active text-light fw-bold navTabs"
                   aria-current="page"
-                  href="#"
+                  href="/reviewArea"
                 >
                   Reviews
                 </a>
@@ -106,7 +106,7 @@ function Navbar() {
                     <hr class="dropdown-divider" />
                   </li>
                   <li>
-                    <a class="dropdown-item fw-bold " href="newsForm">
+                    <a class="dropdown-item fw-bold " href="/newsForm">
                       Write News Articles
                     </a>
                   </li>
