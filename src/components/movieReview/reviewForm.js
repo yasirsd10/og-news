@@ -3,6 +3,15 @@ import React from "react";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { FaStar } from "react-icons/fa";
+import { db } from '../../firebase';
+import {
+  collection,
+  onSnapshot,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from 'firebase/firestore';
 
 const colors = {
   orange: "#FFBA5A",
@@ -32,25 +41,22 @@ export default function ReviewForm() {
     setHoverValue(undefined);
   };
 
+  const createReview = () => {
+    addDoc(collection(db, 'reviews'), {
+      moviePoster: moviePoster,
+      movieName: movieName,
+      movieReview: movieReview });
+      console.log("post successfully");
+        setMovieName('');
+        setMovieReview('');
+        setMoviePoster('');
+  };
+
   const onSubmitClick = (e) => {
     e.preventDefault();
 
     if (moviePoster && movieName && movieReview) {
-      const reviewObj = {
-        moviePoster: moviePoster,
-        movieName: movieName,
-        movieReview: movieReview,
-      };
       setShowError(false);
-      const sheetUrl =
-        "https://sheet.best/api/sheets/5341beec-1c74-48c7-800f-a7f37f42e9d0";
-
-      axios.post(sheetUrl, reviewObj).then(() => {
-        console.log("post successfully");
-        setMovieName('');
-        setMovieReview('');
-        setMoviePoster('');
-      });
     } else {
       setShowError(true);
     }
@@ -133,6 +139,7 @@ export default function ReviewForm() {
         </div>
         <div className="d-flex justify-content-center">
           <button
+          onClick={createReview}
             className="my-4 btn btn-primary"
             style={styles.button}
             type="submit"

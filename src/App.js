@@ -3,7 +3,7 @@ import Navbar from "./components/homeComponents/navbar";
 import Output from "./output";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ReviewForm from "./components/movieReview/reviewForm";
-import CollectionForm from "./components/collectionForm";
+import CollectionForm from "./components/movieCollections/collectionForm";
 import NewsForm from "./components/newsForm";
 import ReviewArea from "./components/movieReview/reviewArea";
 import ReviewMapping from "./components/movieReview/reviewMapping";
