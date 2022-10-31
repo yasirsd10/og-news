@@ -1,16 +1,41 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from 'react';
+import {
+  collection,
+  onSnapshot,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from 'firebase/firestore';
+import { db } from '../../firebase';
 import ReviewArea from "./reviewArea";
 
 function ReviewMapping() {
-  const [reviewData, setReviewData] = useState([]);
 
-  const reviewEndPoint =
-    "https://sheet.best/api/sheets/5341beec-1c74-48c7-800f-a7f37f42e9d0";
+  const [reviews, setReviews] = useState([]);
+  const [todoTitle, setTodoTitle] = useState('Sample');
+
   useEffect(() => {
-    axios.get(reviewEndPoint).then((res) => {
-      const apiResponse = res.data;
-      setReviewData(apiResponse);
+    const movieReviewCollection = collection(db, 'reviews');
+
+    onSnapshot(movieReviewCollection, (movieReviewSnapshot) => {
+      const allReviews = movieReviewSnapshot.docs.map((movieReviewDocument) =>
+      movieReviewDocument.data()
+      );
+      console.log(':: All Review Data ::', allReviews);
+    });
+
+    onSnapshot(collection(db, 'reviews'), (reviewSnapshot) => {
+      const reviews = reviewSnapshot.docs.map((review) => {
+        return {
+          movieName: review.movieName,
+          ...review.data(),
+          reviewDocument: review,
+        };
+      });
+      console.log(':: ALL REVIEWS ::', reviews);
+      setReviews(reviews);
     });
   }, []);
 
@@ -18,7 +43,7 @@ function ReviewMapping() {
     <div className=" container text-center">
         {/* <pre>{JSON.stringify(reviewData, null,2)}</pre> */}
       <div className="row">
-        {reviewData.map((movie) => (
+        {reviews.map((movie) => (
           <ReviewArea reviewApiData={movie} />
         ))}
       </div>
