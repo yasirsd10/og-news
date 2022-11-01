@@ -1,6 +1,6 @@
 import React from 'react'
 import Moviearticle from './components/moviearticle'
-import Collections from './components/movieCollections/collections'
+import Collections from './components/collections'
 import Trends from './components/trends'
 import MovieReviews from './components/homeComponents/movieReviews'
 
