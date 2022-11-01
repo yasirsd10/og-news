@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from 'react';
 import {
   collection,
@@ -9,12 +8,11 @@ import {
   doc,
 } from 'firebase/firestore';
 import { db } from '../../firebase';
-import ReviewArea from "./reviewArea";
+import ReviewArea from "./reviewArea";  
 
 function ReviewMapping() {
 
   const [reviews, setReviews] = useState([]);
-  const [todoTitle, setTodoTitle] = useState('Sample');
 
   useEffect(() => {
     const movieReviewCollection = collection(db, 'reviews');

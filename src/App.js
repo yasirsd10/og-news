@@ -5,12 +5,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ReviewForm from "./components/movieReview/reviewForm";
 import CollectionForm from "./components/movieCollections/collectionForm";
 import NewsForm from "./components/news/newsForm";
-import ReviewArea from "./components/movieReview/reviewArea";
 import ReviewMapping from "./components/movieReview/reviewMapping";
 import Celebs from "./components/celebs";
 import TrendsArea from "./components/homeComponents/trendsArea";
-import CollectionArea from "./components/movieCollections/collectionsArea";
 import NewsArea from "./components/news/newsArea";
+import CollectionMapping from "./components/movieCollections/collectionMapping";
 function App() {
   return (
     <Router>
@@ -43,7 +42,7 @@ function App() {
               <TrendsArea />
             </Route>
             <Route path= "/collectionsArea">
-              <CollectionArea />
+              <CollectionMapping />
             </Route>
           </Switch>
         </div>
