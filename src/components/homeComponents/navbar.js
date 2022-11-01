@@ -46,7 +46,7 @@ function Navbar() {
                 <a
                   className="nav-link active text-light fw-bold navTabs"
                   aria-current="page"
-                  href="#"
+                  href="/celebInfo"
                 >
                   Celebrities
                 </a>

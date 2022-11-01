@@ -7,6 +7,7 @@ import CollectionForm from "./components/movieCollections/collectionForm";
 import NewsForm from "./components/newsForm";
 import ReviewArea from "./components/movieReview/reviewArea";
 import ReviewMapping from "./components/movieReview/reviewMapping";
+import Celebs from "./components/celebs";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route path= "/reviewArea">
               <ReviewMapping />
+            </Route>
+            <Route path= "/celebInfo">
+              <Celebs />
             </Route>
           </Switch>
         </div>
