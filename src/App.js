@@ -8,7 +8,9 @@ import NewsForm from "./components/news/newsForm";
 import ReviewArea from "./components/movieReview/reviewArea";
 import ReviewMapping from "./components/movieReview/reviewMapping";
 import Celebs from "./components/celebs";
-
+import TrendsArea from "./components/homeComponents/trendsArea";
+import CollectionArea from "./components/movieCollections/collectionsArea";
+import NewsArea from "./components/news/newsArea";
 function App() {
   return (
     <Router>
@@ -33,6 +35,15 @@ function App() {
             </Route>
             <Route path= "/celebInfo">
               <Celebs />
+            </Route>
+            <Route path= "/newsArea">
+              <NewsArea />
+            </Route>
+            <Route path= "/trendsArea">
+              <TrendsArea />
+            </Route>
+            <Route path= "/collectionsArea">
+              <CollectionArea />
             </Route>
           </Switch>
         </div>

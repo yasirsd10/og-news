@@ -37,7 +37,7 @@ function Navbar() {
                 <a
                   className="nav-link active text-light fw-bold navTabs"
                   aria-current="page"
-                  href="#"
+                  href="/newsArea"
                 >
                   News
                 </a>
@@ -55,7 +55,7 @@ function Navbar() {
                 <a
                   className="nav-link active text-light fw-bold navTabs"
                   aria-current="page"
-                  href="#"
+                  href="/trendsArea"
                 >
                   Trends
                 </a>
@@ -73,7 +73,7 @@ function Navbar() {
                 <a
                   className="nav-link active text-light fw-bold navTabs"
                   aria-current="page"
-                  href="#"
+                  href="/CollectionsArea"
                 >
                   Movie Collections
                 </a>
