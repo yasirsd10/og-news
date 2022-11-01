@@ -6,4 +6,4 @@ function NewsForm() {
   )
 }
 
-export default NewsForm
+export default NewsForm;

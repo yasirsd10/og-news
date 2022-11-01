@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { FaStar } from "react-icons/fa";
 import { db } from '../../firebase';
+import Errorform from "../homeComponents/Errorsform";
 import {
   collection,
   onSnapshot,
@@ -65,9 +66,11 @@ export default function ReviewForm() {
   return (
     <form onSubmit={onSubmitClick}>
       <div style={styles.container} className="mt-5">
-        { showError ? <div className ="alert alert-danger alert-dismissible fade show" role="alert">
-          <strong>Please Fill All Inputs</strong> 
-          <button type="button" className ="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div> : null}
+      { showError ? <div >
+          <strong><Errorform  poster = {moviePoster} /></strong>
+          <strong><Errorform name = {movieName} /></strong> 
+          <strong><Errorform review = {movieReview} /></strong>  
+          </div> : null}
         <label for="basic-url" className ="form-label">
           Movie Poster URL
         </label>
