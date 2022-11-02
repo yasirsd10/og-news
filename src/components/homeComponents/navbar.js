@@ -37,7 +37,7 @@ function Navbar() {
                 <a
                   className="nav-link active text-light fw-bold navTabs"
                   aria-current="page"
-                  href="/newsArea"
+                  href="/newsMapping"
                 >
                   News
                 </a>

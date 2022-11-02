@@ -10,6 +10,7 @@ import Celebs from "./components/celebs";
 import TrendsArea from "./components/homeComponents/trendsArea";
 import NewsArea from "./components/news/newsArea";
 import CollectionMapping from "./components/movieCollections/collectionMapping";
+import NewsMapping from "./components/news/newsMapping";
 function App() {
   return (
     <Router>
@@ -41,8 +42,11 @@ function App() {
             <Route path= "/trendsArea">
               <TrendsArea />
             </Route>
-            <Route path= "/collectionsArea">
+            <Route path= "/collectionMapping">
               <CollectionMapping />
+            </Route>
+            <Route path= "/newsMapping">
+              <NewsMapping />
             </Route>
           </Switch>
         </div>
