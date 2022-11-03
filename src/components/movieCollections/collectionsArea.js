@@ -3,7 +3,7 @@ import React from "react";
 function CollectionArea( { collectionApiData = {} } ) {
     console.log("collectionsApiData", collectionApiData);
   return (
-        <div className="shadow item m-3" style={{ width: "480px" }}>
+        <div className="shadow item m-3 CollectionCard" style={{ width: "480px" }}>
           <div className="">
             <div className="col-md-8">
               <div className="p-3 text-center">

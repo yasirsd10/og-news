@@ -39,6 +39,7 @@ function ReviewMapping() {
 
   return (
     <div className=" container text-center movieReviewDiv">
+    <h1 className='m-3 mt-4 text-white' >Movie Reviews</h1>
         {/* <pre>{JSON.stringify(reviewData, null,2)}</pre> */}
       <div className="reviewWrapper">
         {reviews.map((movie) => (
