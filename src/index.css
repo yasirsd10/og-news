@@ -106,7 +106,7 @@ ul {
   text-align: center;
   min-width: 250px !important;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
    
 }
 
@@ -152,5 +152,31 @@ ul {
   height: 30px;
 }
 
+.movieReviewDiv {
+  background:  rgb(114, 114, 114);
+  height: 30rem;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.reviewCard {
+  width: 15rem;
+  background: #fff;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.reviewCard .reviewCardImg {
+  height: 210px;
+  width: 230px;
+  border-radius: 6px 6px 0 0;
+
+}
+
+.reviewWrapper {
+  height: 30rems !important;
+  display: flex;
+  overflow-x: auto;
+}
 
 
