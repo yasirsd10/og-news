@@ -45,6 +45,7 @@ function Collections() {
           <CollectionArea  collectionApiData={movie} />
         ))}
       </div>
+      <a type="button" class="btn btn-primary movieArticleBtn mt-3" href='/collectionMapping'>See more</a>
     </div>
   );
 }
