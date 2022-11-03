@@ -73,7 +73,7 @@ function Navbar() {
                 <a
                   className="nav-link active text-light fw-bold navTabs"
                   aria-current="page"
-                  href="/CollectionsArea"
+                  href="/collectionMapping"
                 >
                   Movie Collections
                 </a>

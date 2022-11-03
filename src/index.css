@@ -82,8 +82,10 @@ ul {
 
 .collectionsDiv {
   width: 100%;
-  padding: 180px 0;
   position: relative;
+  max-height: 450px;
+  padding: 50px;
+  background: rgb(163, 162, 162);
 }
 
 .collectionsDiv .collectionsDivBtn {
@@ -91,6 +93,24 @@ ul {
   bottom: 15px;
   right: 20px;
 }
+
+.collectionsWrapper{
+  max-height: 250px;
+  display: flex;
+  overflow-x: auto;
+
+}
+
+  .item {
+  height: 200px;
+  text-align: center;
+  min-width: 250px !important;
+  background: #fff;
+  border-radius: 8px;
+   
+}
+
+
 
 /* --------------- trends styles -------------------------------- */
 

@@ -1,14 +1,52 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import {
+  collection,
+  onSnapshot,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from 'firebase/firestore';
+import { db } from './../firebase';
+import CollectionArea from './movieCollections/collectionsArea';
 
 function Collections() {
+
+  const [movieCol, setMovieCol] = useState([]);
+
+  useEffect(() => {
+    const collectionsCollection = collection(db, 'collections');
+
+    onSnapshot(collectionsCollection, (movieColSnapshot) => {
+      const allMovieCol = movieColSnapshot.docs.map((movieColDocument) =>
+      movieColDocument.data()
+      );
+      console.log(':: All Movie collections Data ::', allMovieCol);
+    });
+
+    onSnapshot(collection(db, 'collections'), (collSnapshot) => {
+      const movieCol = collSnapshot.docs.map((coll) => {
+        return {
+          movieName: coll.movieName,
+          ...coll.data(),
+          collDocument: coll,
+        };
+      });
+      console.log(':: ALL Movie Collections ::', movieCol);
+      setMovieCol(movieCol);
+    });
+  }, []);
+
   return (
-    <div className='collectionsDiv bg-dark'>
-        <h1 className='text-light'>
-            Box Office Collections <br /> Articles Related to Movie Collections
-        </h1>
-        <button type="button" class="btn btn-primary collectionsDivBtn">See more</button>
+    <div className=" container text-center collectionsDiv">
+        {/* <pre>{JSON.stringify(reviewData, null,2)}</pre> */}
+      <div className="collectionsWrapper">
+        {movieCol.map((movie) => (
+          <CollectionArea  collectionApiData={movie} />
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default Collections
+export default Collections;
