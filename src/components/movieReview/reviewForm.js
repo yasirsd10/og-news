@@ -67,9 +67,7 @@ export default function ReviewForm() {
     <form onSubmit={onSubmitClick}>
       <div style={styles.container} className="mt-5">
       { showError ? <div >
-          <strong><Errorform  poster = {moviePoster} /></strong>
-          <strong><Errorform name = {movieName} /></strong> 
-          <strong><Errorform review = {movieReview} /></strong>  
+          <strong><Errorform  poster = {moviePoster} /></strong>  
           </div> : null}
         <label for="basic-url" className ="form-label">
           Movie Poster URL

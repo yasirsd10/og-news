@@ -16,7 +16,8 @@ export default function CollectionForm() {
   const [movieGross, setMovieGross] = useState("");
   const [showError, setShowError] = useState(false);
 
-  const createCollections = () => {
+  const createCollections = (e) => {
+    e.preventDefault();
     addDoc(collection(db, 'collections'), {
       movieGross: movieGross,
       movieName: movieName,
@@ -27,7 +28,7 @@ export default function CollectionForm() {
         setMovieGross('');
   };
   const onSubmitClick = (e) => {
-    e.preventDefault();
+    
 
     if (movieBudget && movieName && movieGross) {
       setShowError(false);
@@ -55,7 +56,7 @@ export default function CollectionForm() {
             placeholder="Movie Name"
             aria-label="Username"
             aria-describedby="basic-addon1"
-            Value={movieName}
+            Value={movieName ? movieName: null}
             onChange={(e) => setMovieName(e.target.value)}
           />
         </div>

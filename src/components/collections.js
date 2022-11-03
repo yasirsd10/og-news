@@ -39,6 +39,7 @@ function Collections() {
 
   return (
     <div className=" container text-center collectionsDiv">
+      <h2>Movie Collections</h2>
         {/* <pre>{JSON.stringify(reviewData, null,2)}</pre> */}
       <div className="collectionsWrapper">
         {movieCol.map((movie) => (

@@ -3,8 +3,8 @@ import React from "react";
 function ReviewArea( { reviewApiData = {} } ) {
     console.log("reviewApiData", reviewApiData);
   return (
-        <div className="card mb-3" style={{ width: "540px" }}>
-          <div className="row g-0">
+        <div className=" mb-3 item m-3" style={{ width: "540px" }}>
+          <div className="d-flex text-center g-0">
             <div className="col-md-4">
               <img src={reviewApiData.moviePoster} className="img-fluid rounded-start" alt="..." />
             </div>
