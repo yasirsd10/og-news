@@ -11,6 +11,11 @@ import TrendsArea from "./components/homeComponents/trendsArea";
 import NewsArea from "./components/news/newsArea";
 import CollectionMapping from "./components/movieCollections/collectionMapping";
 import NewsMapping from "./components/news/newsMapping";
+import OttInfo from "./components/ottInfo/ottInfoMapping";
+import MovieSchedule from "./components/scheduleMovie/movieScheduleMapping";
+import OttForm from "./components/ottInfo/ottForm";
+import ScheduleForm from "./components/scheduleMovie/scheduleForm";
+
 function App() {
   return (
     <Router>
@@ -47,6 +52,18 @@ function App() {
             </Route>
             <Route path= "/newsMapping">
               <NewsMapping />
+            </Route>
+            <Route path= "/ottInfo">
+              <OttInfo />
+            </Route>
+            <Route path= "/movieSchedule">
+              <MovieSchedule />
+            </Route>
+            <Route path= "/ottForm">
+              <OttForm />
+            </Route>
+            <Route path= "/scheduleForm">
+              <ScheduleForm />
             </Route>
           </Switch>
         </div>

@@ -5,8 +5,8 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navBg">
         <div className="container-fluid">
-          <a className="navbar-brand text-light fw-bolder navLogo" href="#">
-            OGNews
+          <a className="navbar-brand text-light fw-bolder navLogo" href="/">
+            Demo
           </a>
           <button
             className="navbar-toggler"
@@ -39,10 +39,10 @@ function Navbar() {
                   aria-current="page"
                   href="/newsMapping"
                 >
-                  News
+                  Movie News
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a
                   className="nav-link active text-light fw-bold navTabs"
                   aria-current="page"
@@ -50,16 +50,7 @@ function Navbar() {
                 >
                   Celebrities
                 </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link active text-light fw-bold navTabs"
-                  aria-current="page"
-                  href="/trendsArea"
-                >
-                  Trends
-                </a>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <a
                   className="nav-link active text-light fw-bold navTabs"
@@ -69,6 +60,16 @@ function Navbar() {
                   Reviews
                 </a>
               </li>
+              {/* <li className="nav-item">
+                <a
+                  className="nav-link active text-light fw-bold navTabs"
+                  aria-current="page"
+                  href="/trendsArea"
+                >
+                  Trends
+                </a>
+              </li> */}
+              
               <li className="nav-item">
                 <a
                   className="nav-link active text-light fw-bold navTabs"
@@ -76,6 +77,24 @@ function Navbar() {
                   href="/collectionMapping"
                 >
                   Movie Collections
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active text-light fw-bold navTabs"
+                  aria-current="page"
+                  href="/ottInfo"
+                >
+                 OTT Info
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active text-light fw-bold navTabs"
+                  aria-current="page"
+                  href="/MovieSchedule"
+                >
+                  Movie Schedule
                 </a>
               </li>
               <li class="nav-item dropdown dropTab">
@@ -108,6 +127,18 @@ function Navbar() {
                   <li>
                     <a class="dropdown-item fw-bold " href="/newsForm">
                       Write News Articles
+                    </a>
+                  </li>
+                  <hr class="dropdown-divider" />
+                  <li>
+                    <a class="dropdown-item fw-bold " href="/ScheduleForm">
+                      Schedule A Movie
+                    </a>
+                  </li>
+                  <hr class="dropdown-divider" />
+                  <li>
+                    <a class="dropdown-item fw-bold " href="/ottForm">
+                      Add OTT Info
                     </a>
                   </li>
                 </ul>
