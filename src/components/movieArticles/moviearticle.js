@@ -4,9 +4,9 @@ function Moviearticle() {
   return (
     <div className='movieArticle rounded'>
         <h1 className='text-dark'>
-          Recent Movie News Articles
+          Latest Movie News Articles
         </h1>
-        <button type="button" class="btn btn-primary movieArticleBtn">See more</button>
+        <a type="button" class="btn btn-primary movieArticleBtn" href='/latestMovieArticles'>See more</a>
     </div>
   )
 }

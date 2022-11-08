@@ -15,6 +15,8 @@ import OttInfo from "./components/ottInfo/ottInfoMapping";
 import MovieSchedule from "./components/scheduleMovie/movieScheduleMapping";
 import OttForm from "./components/ottInfo/ottForm";
 import ScheduleForm from "./components/scheduleMovie/scheduleForm";
+import LatestMovieArticles from "./components/movieArticles/latestMovieArticles";
+import MostReadNews from "./components/movieArticles/mostReadNews";
 
 function App() {
   return (
@@ -64,6 +66,12 @@ function App() {
             </Route>
             <Route path= "/scheduleForm">
               <ScheduleForm />
+            </Route>
+            <Route path= "/latestMovieArticles">
+              <LatestMovieArticles />
+            </Route>
+            <Route path= "/mostReadMovieArticle">
+              <MostReadNews />
             </Route>
           </Switch>
         </div>
