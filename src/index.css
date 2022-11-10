@@ -194,4 +194,9 @@ ul {
   overflow-x: auto;
 }
 
+.errorMessage{
+  color: red;
+  display: flex;
+}
+
 

@@ -1,118 +1,121 @@
 import React from "react";
-import { useState } from "react";
-import { db } from '../../firebase';
-import {
-  collection,
-  onSnapshot,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-} from 'firebase/firestore';
+import { useState, useEffect } from "react";
+import { db } from "../../firebase";
+import Firebase from "../../firebase";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import "./newsForm.css";
 
 export default function CollectionForm() {
-  const [movieName, setMovieName] = useState("");
-  const [movieBudget, setMovieBudget] = useState("");
-  const [movieGross, setMovieGross] = useState("");
-  const [showError, setShowError] = useState(false);
-
-  const createCollections = (e) => {
-    e.preventDefault();
-    addDoc(collection(db, 'collections'), {
-      movieGross: movieGross,
-      movieName: movieName,
-      movieBudget: movieBudget });
-      console.log("post successfully");
-        setMovieName('');
-        setMovieBudget('');
-        setMovieGross('');
-  };
-  const onSubmitClick = (e) => {
-    
-
-    if (movieBudget && movieName && movieGross) {
-      setShowError(false);
-    } else {
-      setShowError(true);
-    }
-  };
-
-
+  const formik = useFormik({
+    initialValues: {
+      movieName: "",
+      movieBudget: "",
+      movieGross: "",
+    },
+    validationSchema: Yup.object({
+      movieName: Yup.string()
+        .max(100, "Movie Name Must be Less Than 100 Characters")
+        .required("Please Provide the Movie Name"),
+      movieBudget: Yup.number()
+        .min(100000, "Please Provide the Validate Detais")
+        .required("Please Provide the Movie Budget")
+        .typeError("Movie Budget Must Be a Number"),
+      movieGross: Yup.number()
+        .min(100000, "Please Provide the Valid Details")
+        .typeError("Movie Gross Must Be a Number")
+        .required("Please Provide the Movie Gross"),
+    }),
+    onSubmit: (values) => {
+      //   let ref1 = Firebase.database().ref().child('collections').push()
+      // ref1.set(values)
+    },
+  });
   return (
-    <form onSubmit={onSubmitClick}>
+    <form onSubmit={formik.handleSubmit}>
       <div style={styles.container} className="mt-5">
         <div className="shadow-sm p-3 mb-5 bg-body rounded ">
-        { showError ? <div className ="alert alert-danger alert-dismissible fade show" role="alert">
-          <strong>Please Fill All Inputs</strong> 
-          <button type="button" className ="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div> : null}
-        <div>
-        <div className ="input-group mb-3">
-          <span className ="input-group-text" id="basic-addon1">
-            Movie Name
-          </span>
-          <input
-            type="text"
-            className ="form-control"
-            placeholder="Movie Name"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-            Value={movieName ? movieName: null}
-            onChange={(e) => setMovieName(e.target.value)}
-          />
-        </div>
-        <div className ="input-group mb-3">
-          <span className ="input-group-text" id="basic-addon1">
-            Budget
-          </span>
-          <input
-            type="text"
-            className ="form-control"
-            placeholder="Movie Budget"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-            Value={movieBudget}
-            onChange={(e) => setMovieBudget(e.target.value)}
-          />
-        </div>
-        <div className ="input-group mb-3">
-          <span className ="input-group-text" id="basic-addon1">
-            World Wide Gross
-          </span>
-          <input
-            type="text"
-            className ="form-control"
-            placeholder="World Wide Gross"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-            Value={movieGross}
-            onChange={(e) => setMovieGross(e.target.value)}
-          />
-        </div>
-        <div className="d-flex justify-content-center">
-          <button
-            className="my-4 btn btn-primary"
-            style={styles.button}
-            type="submit"
-            onClick={createCollections}
-          >
-            Submit
-          </button>
-        </div>
-        </div>
+          <div className="mb-1">
+            {formik.touched.movieName && formik.errors.movieName ? (
+              <div className="errorMessage">{formik.errors.movieName}</div>
+            ) : null}
+          </div>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="basic-addon3">
+              Movie Name
+            </span>
+            <input
+              id="movieName"
+              name="movieName"
+              type="text"
+              class="form-control"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.movieName}
+            />
+          </div>
+
+          <div className="mb-1">
+            {formik.touched.movieBudget && formik.errors.movieBudget ? (
+              <div className="errorMessage">{formik.errors.movieBudget}</div>
+            ) : null}
+          </div>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="basic-addon3">
+              Movie Budget
+            </span>
+            <input
+              id="movieBudget"
+              name="movieBudget"
+              type="text"
+              class="form-control"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.movieBudget}
+            />
+          </div>
+
+          <div className="mb-1">
+            {formik.touched.movieGross && formik.errors.movieGross ? (
+              <div className="errorMessage">{formik.errors.movieGross}</div>
+            ) : null}
+          </div>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="basic-addon3">
+              World Wide Gross
+            </span>
+            <input
+              id="movieGross"
+              name="movieGross"
+              type="movieGross"
+              class="form-control"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.movieGross}
+            />
+          </div>
+
+          <div className="d-flex justify-content-center">
+            <button
+              className="my-4 btn btn-primary"
+              style={styles.button}
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </form>
   );
 }
-
-
-
-
-
-
-
-
-
 
 const styles = {
   container: {

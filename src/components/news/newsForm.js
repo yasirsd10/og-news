@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { db } from '../../firebase';
+import { db } from "../../firebase";
 import {
   collection,
   onSnapshot,
@@ -8,94 +8,95 @@ import {
   updateDoc,
   deleteDoc,
   doc,
-} from 'firebase/firestore';
+} from "firebase/firestore";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export default function NewsForm() {
-  const [articleHeadline, setArticleHeadline] = useState("");
-  const [articleBody, setArticleBody] = useState("");
-  const [showError, setShowError] = useState(false);
-
-  const createNews = () => {
-    addDoc(collection(db, 'news'), {
-      articleHeadline: articleHeadline,
-      articleBody: articleBody });
-      console.log("post successfully");
-      setArticleHeadline('');
-      setArticleBody('');
-
-  };
-  const onSubmitClick = (e) => {
-    e.preventDefault();
-
-    if (articleHeadline && articleBody) {
-      setShowError(false);
-    } else {
-      setShowError(true);
-    }
-  };
-
-
+  const formik = useFormik({
+    initialValues: {
+      articleHeadline: "",
+      articleBody: "",
+    },
+    validationSchema: Yup.object({
+      articleHeadline: Yup.string()
+        .required("Please Provide the Article Headline")
+        .max(100, "Article Headline Must be Less Than 100 Characters")
+        .min(10, "Article Headline Must Be 10 Characters or More"),
+      articleBody: Yup.string()
+        .required("Please Provide the Aticle")
+        .max(500, "Aricle Must Be Less Than 500 Characters")
+        .min(50, "Article Must Be 50 Characters or More"),
+    }),
+    onSubmit: (values) => {
+      //   let ref1 = Firebase.database().ref().child('collections').push()
+      // ref1.set(values)
+    },
+  });
   return (
-    <form onSubmit={onSubmitClick}>
+    <form onSubmit={formik.handleSubmit}>
       <div style={styles.container} className="mt-5">
         <div className="shadow-sm p-3 mb-5 bg-body rounded ">
-        { showError ? <div className ="alert alert-danger alert-dismissible fade show" role="alert">
-          <strong>Please Fill All Inputs</strong> 
-          <button type="button" className ="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div> : null}
-        <div>
-        <div className ="input-group mb-3">
-          <span className ="input-group-text" id="basic-addon1">
-            Article Headline
-          </span>
-          <input
-            type="text"
-            className ="form-control"
-            placeholder="Write Article Here"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-            Value={articleHeadline}
-            onChange={(e) => setArticleHeadline(e.target.value)}
-          />
-        </div>
-        <div className ="input-group mb-3">
-          <span className ="input-group-text" id="basic-addon1">
-            Article
-          </span>
-          <input
-            type="text"
-            className ="form-control"
-            placeholder="World Wide Gross"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-            Value={articleBody}
-            onChange={(e) => setArticleBody(e.target.value)}
-          />
-        </div>
-        <div className="d-flex justify-content-center">
-          <button
-            className="my-4 btn btn-primary"
-            style={styles.button}
-            type="submit"
-            onClick={createNews}
-          >
-            Submit
-          </button>
-        </div>
-        </div>
+          <div className="mb-1">
+            {formik.touched.articleHeadline && formik.errors.articleHeadline ? (
+              <div className="errorMessage">
+                {formik.errors.articleHeadline}
+              </div>
+            ) : null}
+          </div>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="basic-addon3">
+              Article Headline
+            </span>
+            <input
+              id="articleHeadline"
+              name="articleHeadline"
+              type="text"
+              class="form-control"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.articleHeadline}
+            />
+          </div>
+
+          <div className="mb-1">
+            {formik.touched.articleBody && formik.errors.articleBody ? (
+              <div className="errorMessage">{formik.errors.articleBody}</div>
+            ) : null}
+          </div>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="basic-addon3">
+              Article
+            </span>
+            <input
+              id="articleBody"
+              name="articleBody"
+              type="text"
+              class="form-control"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.articleBody}
+            />
+          </div>
+
+          <div className="d-flex justify-content-center">
+            <button
+              className="my-4 btn btn-primary"
+              style={styles.button}
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </form>
   );
 }
-
-
-
-
-
-
-
-
-
 
 const styles = {
   container: {
