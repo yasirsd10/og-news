@@ -5,7 +5,7 @@ import Firebase from "../../firebase";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import "./newsForm.css";
+// import "./newsForm.css";
 
 export default function CollectionForm() {
   const formik = useFormik({
